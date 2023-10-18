@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "834609933376",
+    "project_id": "memorydirective",
+    "storage_bucket": "memorydirective.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834609933376:android:501d58d4ed4d64393a03a5",
+        "android_client_info": {
+          "package_name": "com.example.memorydirective"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834609933376-ip29tg3gob1bgd682t1k0jt7q7gvaqfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU3NMUpvOCfyrye0W1aI5vHcvXeoDcQMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834609933376-ip29tg3gob1bgd682t1k0jt7q7gvaqfo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "834609933376-5btmp0ll3lmtetar5kduik0t35nhi6l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.memorydirective"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
