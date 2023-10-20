@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:memorydirective/Pages/screens_master/nav_screen.dart';
 
-class MasterPage extends StatefulWidget {
-  const MasterPage({super.key});
 
-  @override
-  State<MasterPage> createState() => _MasterPageState();
-}
-
-class _MasterPageState extends State<MasterPage> {
+class MasterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: Scaffold(
-          body: Center(
-            child: Text(
-              'Master Page',
-              style: TextStyle(fontSize: 50),
-            ),
-          ),
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return MaterialApp(
+      title: 'MASTER UI',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        bottomNavigationBarTheme:
+        const BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
+      home: Container(),
     );
   }
 }

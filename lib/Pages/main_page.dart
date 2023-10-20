@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:memorydirective/Pages/Notes/screens_notes/Notehome.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -24,16 +26,33 @@ class _MainPageState extends State<MainPage> {
 
                  children :[
 
-                    Container(
+                    Container(child:  MaterialButton(
+                        child: const Text('TO DO',style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 30.0,
+                          color: Colors.white,
+                        ),),
+                        onPressed: (){}
+
+                    ),
                       height: 220,
                       width: 200.0,
 
                       color: Colors.black,
                     ),
                     Container(
-                      height: 220,
+                      child: MaterialButton(
+                        child: Text('N O T E S',style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 30.0,
+                          color: Colors.black,
+                        ),),
+                        onPressed: (){}
+
+                      )
+                      ,height: 220,
                       width: 200.0,
-                      color: Colors.black45,
+                      color: Colors.white,
                     ),
                   ],
                 ),
@@ -42,7 +61,16 @@ class _MainPageState extends State<MainPage> {
                   children: [
 
                     Container(
-                      height: 220,
+                      child: MaterialButton(
+                        child: Text('M E M O R Y D I A R Y',style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 30.0,
+                          color: Colors.black,
+                        ),),
+                        onPressed: (){}
+
+                    )
+                      ,height: 220,
                       width: 400.0,
                       color: Colors.black26,
                     ),
@@ -52,12 +80,30 @@ class _MainPageState extends State<MainPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
 
-                    Container(
+                    Container(child: MaterialButton(
+                        child: Text('R E M A I N D E R ',style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 19.0,
+                          color: Colors.black,
+                        ),),
+                        onPressed: (){}
+
+                    )
+                      ,
                       height: 220,
                       width: 200.0,
-                      color: Colors.black45,
+                      color: Colors.white,
                     ),
-                    Container(
+                    Container(child: MaterialButton(
+                        child: Text('R E M A I N D E R ',style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 19.0,
+                          color: Colors.black,
+                        ),),
+                        onPressed: (){}
+
+                    )
+                      ,
                       height: 220,
                       width: 200.0,
                       color: Colors.black,

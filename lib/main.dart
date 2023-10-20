@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memorydirective/pages_login/auth_page.dart';
 import 'pages_login//login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'dart:async';
 import 'dart:convert' show json;
 
 
@@ -12,8 +12,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,81 +1,69 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:memorydirective/data/model/app_user.dart';
 
-class AuthService{
+//now let's create a repository
+class AuthDatasource {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
-  AuthService(this._auth,this. _firestore);
 
-  Future<bool> googleSignIn() async{
+  AuthDatasource(this._auth, this._firestore);
+
+  //login
+  Future<bool> googleSignIn() async {
     final GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
     final signInAccount = await googleSignIn.signIn();
-    if(signInAccount == null) return false;
-    final googleAuth = await signInAccount.authentication;
-    final oauthCredntials = GoogleAuthProvider.credential(
-      idToken: googleAuth.idToken,
-      accessToken: googleAuth.accessToken
+    if (signInAccount == null) return false;
 
+    final googleAuth = await signInAccount.authentication;
+    final oauthCredentials = GoogleAuthProvider.credential(
+      idToken: googleAuth.idToken,
+      accessToken: googleAuth.accessToken,
     );
+
     try {
-      final result = await _auth.signInWithCredential(oauthCredntials);
+      final result = await _auth.signInWithCredential(oauthCredentials);
       final user = result.user;
 
       await _firestore.collection('users').doc(user?.uid).set({
         'username': user?.displayName,
         'email': user?.email,
         'userId': user?.uid,
-        'imgUrl': user?.photoURL
+        'imgUrl': user?.photoURL,
       });
+
       return true;
-    }
-    catch(e){
+    } catch (e) {
       debugPrint(e.toString());
       return false;
     }
-
-
   }
-  Future<void> signOut() async
-  {
+
+  //logout
+  Future<void> signOut() async {
     await Future.wait([
       _auth.signOut(),
       GoogleSignIn().signOut(),
-
-
     ]);
-
   }
 
+  //list to user auth state if logged in or not
+  // based on that we will navigate in the right screen
   Stream<User?> authStateChanges() async* {
     yield* _auth.authStateChanges();
   }
-  Stream<QuerySnapshot<Object?>> getCurrentUser() async*{
+
+  //fetch the current user info
+  Stream<QuerySnapshot<Object?>> getCurrentUser() async* {
     await _auth.currentUser?.reload();
     final currentUser = _auth.currentUser;
-    if (currentUser != null){
+    if (currentUser != null) {
       yield* _firestore
           .collection('users')
-          .where('userid' , isEqualTo: currentUser.uid)
+          .where('userId', isEqualTo: currentUser.uid)
           .limit(1)
           .snapshots();
     }
   }
-
-
-  }
-
-// abstract class AuthRepositary{
-//   Future<bool> googleSignIn();
-//   Future<void> signOut();
-//   Stream<User?> authStateChanges();
-//   Stream<AppUser> getCurrentUser();
-//
-//
-// }
-
-
-
+}

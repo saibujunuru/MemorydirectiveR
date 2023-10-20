@@ -48,6 +48,18 @@ dependencies:
   fluttertoast:
   grpc:
   google_maps_flutter:
+  custom_info_window:
+  equatable:
+  riverpod: ^2.4.4
+  flutter_riverpod: ^2.4.4
+  google_sign_in:
+  google_sign_in_ios:
+  cached_network_image: ^3.2.3
+  font_awesome_flutter: ^10.5.0
+  go_router: ^10.1.2
+  intl: ^0.17.0
+  miniplayer:
+  timeago:
 
 
 dev_dependencies:

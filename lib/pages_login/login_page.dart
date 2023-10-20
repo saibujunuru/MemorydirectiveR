@@ -5,6 +5,10 @@ import 'package:memorydirective/components_login//my_textfield.dart';
 import 'package:memorydirective/components_login//square_tile.dart';
 import 'package:memorydirective/pages_login/forget_Passwordpage.dart';
 import 'package:memorydirective/auth_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:memorydirective/providers/login_provider.dart';
+
+import 'package:memorydirective/providers/get_current_user_provider.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -65,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
@@ -222,7 +226,11 @@ class _LoginPageState extends State<LoginPage> {
                   children:  [
                     // google button
                     SquareTile(
-                      onTap: ()=> AuthService().signInWithGoogle(),
+                      onTap:() {},
+                      // onTap:() async {
+                      // await ref.read(loginProvider.future);
+                      // }, // await ref.read(loginProvider.future)
+                      // onTap: ()=> AuthService().googleSignIn,
                         imagePath: 'assets/images/google.png'),
 
                     SizedBox(width: 25),

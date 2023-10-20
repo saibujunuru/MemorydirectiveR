@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memorydirective/Pages/pages_travel//travel_page.dart';
 
 
 class MemPage extends StatefulWidget {
@@ -13,13 +14,8 @@ class _MemPageState extends State<MemPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text(
-            'Master Page',
-            style: TextStyle(fontSize: 50),
-          ),
-        ),
-      ),
+        body :TravelPage()),
+
     );
   }
 }
